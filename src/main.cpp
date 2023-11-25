@@ -3,6 +3,7 @@
 //
 #include <iostream>
 #include <cstdlib>
+#include "Student.h"
 
 /*!
  * \mainpage Technical documentation of the example.
@@ -32,7 +33,7 @@
  *
  * \section references References
  *
- * <a href="https://github.com/una-eif201-progra1-master/dev.funda.oop-inheritance">Github repository of the example</a>
+ * <a href="https://github.com/una-eif201-progra1-master/dev.funda.basic-classes.objects.2">Github repository of the example</a>
  *
  * \date 2021-11-23
  * \author Maikol Guzman Alan
@@ -45,6 +46,15 @@
 int main() {
     system("clear");
     std::cout << "Universidad Nacional de Costa Rica - www.mikeguzman.dev" << std::endl;
+
+    Student student("Alice", 20); // Creating an object
+
+    student.display(); // Direct access to public method
+
+    std::cout << "Student's initial age: " << student.getAge() << std::endl; // Indirect access to private attribute
+
+    student.setAge(21); // Indirect access to modify private attribute
+    student.display(); // State of the object is now changed
 
 
     std::cout << std::endl;

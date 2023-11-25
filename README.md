@@ -2,7 +2,7 @@
 
 ## Documentation
 
-- [Technical pages](https://una-eif201-progra1-master.github.io/dev.funda.oop-inheritance/)
+- [Technical pages](https://una-eif201-progra1-master.github.io/dev.funda.basic-classes.objects.2/)
 - [Course website](https://mikeguzman.dev/software-development/programming-fundations/object-oriented-programming/)
 
 ## Resources
@@ -106,27 +106,49 @@ potentially CMake configuration files in subdirectories.
 ## The Example
 
 ```c++
-// Example of Inheritance
-class Vehicle {
-public:
-string brand = "Ford";
+#include <iostream>
+#include <string>
 
-void honk() {
-cout << "Tuut, tuut!" << endl;
-}
-};
+class Student {
+private:
+    std::string name; // Attribute (Encapsulation)
+    int age; // Attribute (Encapsulation)
 
-class Car:
-public Vehicle {
 public:
-string model = "Mustang";
+    // Constructor (Method for initialization)
+    Student(std::string n, int a) : name(n), age(a) {}
+
+    // Method to display student info (Abstraction)
+    void display() const {
+        std::cout << "Name: " << name << ", Age: " << age << std::endl;
+    }
+
+    // Getter (Indirect access to private attribute)
+    int getAge() const {
+        return age;
+    }
+
+    // Setter (Indirect access to private attribute)
+    void setAge(int a) {
+        if (a > 0) {
+            age = a;
+        }
+    }
+
+    // Additional methods can be added here...
 };
 
 int main() {
-Car car1;
-car1.honk();  // Output: Tuut, tuut!
-cout << car1.brand + " " + car1.model;  // Output: Ford Mustang
-return 0;
+    Student student("Alice", 20); // Creating an object
+
+    student.display(); // Direct access to public method
+
+    std::cout << "Student's initial age: " << student.getAge() << std::endl; // Indirect access to private attribute
+
+    student.setAge(21); // Indirect access to modify private attribute
+    student.display(); // State of the object is now changed
+
+    return 0;
 }
 
 ```
